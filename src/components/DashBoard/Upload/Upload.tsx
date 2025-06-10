@@ -16,6 +16,13 @@ const Upload = () => {
   const [count, setCount] = useState(0);
   const shouldCancel = useRef(false);
 
+  console.log("Upload URL :-  ", uploadedUrls);
+  console.log("Modal Opened is :- ", isModalOpen);
+  console.log("shouldCancel  is :- ", shouldCancel);
+  console.log("Count is :- ", count);
+  console.log("CurrentFile is :- ", currentFile);
+  console.log("TotalFile is :- ", totalFiles);
+
   const handleDrop = async (newFiles: FileWithPath[]) => {
     setIsModalOpen(true);
     setCurrentFile(0);
@@ -149,6 +156,10 @@ const Upload = () => {
   useEffect(() => {
     if (count === totalFiles) {
       setIsModalOpen(false);
+      setCount(0);
+      setCurrentFile(0);
+      setProgress(0);
+      setTotalFiles(0);
     }
   }, [count]);
 
