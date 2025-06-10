@@ -15,7 +15,7 @@ const Preview = () => {
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
 
   const fetchUploadedFiles = async (): Promise<UploadedFile[]> => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("uploaded_files")
       .select("*")
       .order("created_at", { ascending: false });
@@ -28,7 +28,7 @@ const Preview = () => {
       try {
         const data = await fetchUploadedFiles();
         setUploadedFiles(data);
-      } catch (err) {}
+      } catch {}
     };
 
     loadFiles();

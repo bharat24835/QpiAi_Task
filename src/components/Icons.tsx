@@ -1,12 +1,8 @@
 interface IconProps {
   type: string;
-  fill?: string;
 }
 
-const Icons = ({
-  type,
-  fill = "currentColor",
-}: IconProps): React.ReactElement | null => {
+const Icons = ({ type }: IconProps): React.ReactElement | null => {
   const icons: Record<string, React.ReactElement> = {
     deploy: (
       <svg

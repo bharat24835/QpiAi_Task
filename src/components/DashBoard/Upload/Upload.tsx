@@ -1,15 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import UploadModal from "./UploadModal";
 import { Dropzone, FileWithPath } from "@mantine/dropzone";
-import {
-  Box,
-  Button,
-  Center,
-  Group,
-  SimpleGrid,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Box, Button, Group, SimpleGrid, Stack, Text } from "@mantine/core";
 import { supabase } from "@/utils/supabase";
 import { showNotification } from "@mantine/notifications";
 const allowedExtensions = [".jpg", ".jpeg", ".png", ".json", ".csv"];
@@ -17,7 +9,7 @@ const MAX_FILE_SIZE_MB = 10;
 
 const Upload = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [files, setFiles] = useState<FileWithPath[]>([]); // dummy state
+  const [_, setFiles] = useState<FileWithPath[]>([]); // dummy state
   const [uploadedUrls, setUploadedUrls] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
   const [totalFiles, setTotalFiles] = useState(0);
@@ -70,11 +62,11 @@ const Upload = () => {
       const safeFileName = file.name.replace(/[^\w.\-()]/g, "_");
       const filePath = `uploads/${Date.now()}-${safeFileName}`;
       // upload to bucket
-      const { data, error } = await supabase.storage
+      const result = await supabase.storage
         .from("uploads")
         .upload(filePath, file);
 
-      if (!error) {
+      if (!result.error) {
         const { data: publicUrlData } = supabase.storage
           .from("uploads")
           .getPublicUrl(filePath);
