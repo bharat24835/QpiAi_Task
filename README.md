@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QPI - AI ASSIGNMENT
 
-## Getting Started
+This task is assigned by Nithin , Arpit and Nikita.
 
-First, run the development server:
+Build a file upload interface based on the provided [Figma](https://www.figma.com/design/nr4xRZFvJewWUoPN0D7Xpq/Assignment?node-id=0-1&p=f&t=Zl5vQfUdIZoEqOMO-0) design, supporting drag-and-drop or manual file/folder selection, live preview, validation, and upload progress tracking.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Allow users to select single or multiple files via: Drag-and-drop area and File picker button
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Supported formats: .jpg, .jpeg, .png, .csv
+- Validation checks: File type and File size (e.g., max 10MB per file)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Show real-time file preview before uploading: Image thumbnails for image files and File names and icons for CSV/JSON.
 
-## Learn More
+- Allow users to: Add more files , Replace files and Delete selected files
 
-To learn more about Next.js, take a look at the following resources:
+- Display live upload progress per file (progress bar or percentage)
+- Show clear and informative error messages for: Invalid file types , Oversized files and Failed uploads (with retry)
+- File Sanitization & Security
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Support file upload to Supabase
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+#### Frontend - NextJS (App Router)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### DataBase :- Supabase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Language :- Typescript
+
+#### UI Library :- Tailwind Css and Mantine
+
+## Demo
+
+#### Link :- https://qpi-task.netlify.app/projects
+
+#### Figma :- [figmaDesign](https://www.figma.com/design/nr4xRZFvJewWUoPN0D7Xpq/Assignment?node-id=0-1&p=f&t=Zl5vQfUdIZoEqOMO-0)
+
+#### Assignment :- [Docs](https://docs.google.com/document/d/1AY1W0eImpS3N91GVakAvm9llcjjYZYutYKZRhWlDGTc/edit?tab=t.0)
