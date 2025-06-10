@@ -9,7 +9,6 @@ const MAX_FILE_SIZE_MB = 10;
 
 const Upload = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [_, setFiles] = useState<FileWithPath[]>([]); // dummy state
   const [uploadedUrls, setUploadedUrls] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
   const [totalFiles, setTotalFiles] = useState(0);
@@ -24,7 +23,6 @@ const Upload = () => {
     setProgress(0);
 
     shouldCancel.current = false; // reset cancel flag
-    setFiles((prev) => [...prev, ...newFiles]); // appending prev store file to current
 
     const total = newFiles.length;
     setTotalFiles(total);
@@ -132,7 +130,6 @@ const Upload = () => {
         message: "Upload complete!",
         color: "green",
       });
-      setFiles([]);
       setUploadedUrls([]);
       setIsModalOpen(false);
     }, 800);
@@ -235,7 +232,6 @@ const Upload = () => {
                     setUploadedUrls((prev) =>
                       prev.filter((_, i) => i !== index)
                     );
-                    setFiles((prev) => prev.filter((_, i) => i !== index));
                   }}
                   className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gray-300 rounded-[12px] w-[20px] h-[20px] flex items-center justify-center shadow text-xs font-bold text-[#4C00FE] cursor-pointer"
                   aria-label="Remove image"
